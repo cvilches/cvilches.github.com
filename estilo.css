@@ -1,0 +1,172 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+
+
+/*Mi código*/
+
+
+body{
+	background-color:#fff;
+	color:#fff;
+	}
+
+#contenedor{
+	width:960px;
+	background-color:#7ABECC;
+	margin:0 auto; /*para centrar el contenedor*/
+	padding-top:20px;
+	}
+
+#cabecera{
+	background-color:#006A83;
+	height:100px;
+	width:1002px;
+	position:relative;
+	left:-21px;
+	}
+
+#triangulo1{
+	background:url(http://jalvarez.cl/trabajos/carla/images/triangulo1.png) no-repeat  bottom; /*url: para llamar una imagen en CSS, bottom: posicion abajo*/
+	width:21px;
+	position:absolute;
+	left:0px;
+	top:0px;
+	bottom:-21px;
+	}
+	
+#triangulo2{
+	background:url(http://jalvarez.cl/trabajos/carla/images/triangulo2.png) no-repeat bottom; /*url: para llamar una imagen en CSS, bottom: posicion abajo*/
+	width:21px;
+	position:absolute;
+	right:0px;
+	top:0px;
+	bottom:-21px;
+	}
+	
+h1 { 
+	font-family: 'Luckiest Guy', arial, serif; 
+	font-size:60px;
+	text-align:center;
+	padding-top:20px;
+	text-shadow:-4px -4px 4px #004759, 4px 4px 4px #004759; /*pone efecto sombra en el texto*/
+	color:#FF2B70;
+	}
+	
+h2{
+	font-family: 'Luckiest Guy', arial, serif; 
+	font-size:20px;
+	color:#fff;
+	padding-bottom:20px;
+	padding-top:20px;
+	}
+	
+h3{
+	font-family:arial;
+	color:#fff;
+	font-size:16px;
+	}
+	
+p{
+	font-family:arial;
+	color:#fff;
+	font-size:14px;
+	}
+	
+.trabajo{
+	width:920px;
+	margin:0 auto;
+	overflow:hidden; /*fuerza a que el contenedor mida lo que mide el contenido de ese mismo contenedor*/
+	}
+	
+.fondo{
+	background-color:#388292;
+	height:242px;
+	}
+	
+.trabajo:first-child{ /*pseudo clase que hace que el 1er elemento de una lista consecutiva adopte la propiedad*/
+	margin-top:40px;
+	}
+	
+.img_cont{
+	float:left;
+	padding:20px;
+	padding-top:45px;
+	}
+
+ul{
+	padding-top:20px;
+	}
+	
+li{
+	display:inline; /*para poner los elementos horizontalmente*/
+	}
+	
+.ultimo_sep{
+	padding-bottom:20px;
+	padding-top:8px;
+	}
+	
+.sombra{
+	-moz-box-shadow:0px 0px 10px #000; /*moz: es un selector solo para firefox prefijo*/
+	-webkit-box-shadow:0px 0px 10px #000; /*webkit: para browsers como chrome, zafari, otros, qe tengan el motor webkit*/
+	box-shadow:0px 0px 10px #000; /*le da la sombra a una caja*/
+	}
+	
+#pie_pag{
+	width:960px;
+	height:40px;
+	background-color:#006A83;
+	padding-top:25px;
+	margin-top:40px;
+	text-align:center;
+	}
+	
+#pie_pag p{
+	color:#FF2B70;
+	font-weight:bold;
+	font-size:16px;
+	}
