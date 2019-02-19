@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>336x280</title>
+<script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_1.19.0_422f021fad4c20f20cf3640a06ac39e9_min.js"></script>
+<script src="https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_1.19.0_cfbff7d208ccfdbe176b9855af1eb1fa_min.js"></script>
+<meta name="ad.size" content="width=336,height=280">
+<script type="text/javascript">var clickTag = 'http://www.google.com';</script>
+<style>
+
+*{margin:0;padding:0;outline:none;box-sizing:border-box;}
+
+.banner {
+  background: url('fondo.jpg');
+}
+
+.banner img {
+  position: absolute;
+}
+
+#septimo{
+  left: 0;
+  margin: 0 auto;
+  right: 0;
+  top: 15px;
+}
+
+#fan{
+  left: 0;
+  margin: 0 auto;
+  opacity: 0;
+  right: 0;
+  top: 16%;
+}
+
+#logos {
+  left: 8px;
+  top: 8px;
+}
+
+#cometas{
+  bottom: -270%;
+  left: -45%;
+}
+
+#boton{
+  left: 0;
+  margin: 0 auto;
+  opacity: 0;
+  right: 0;
+  top: 18%;
+}
+
+</style>
+</head>
+<body>
+<div class="banner" style="width:336px;height:280px;position:relative;overflow:hidden;cursor:pointer;" id="clicktag">
+    
+    <img src="logos.png" alt="" id="logos">    
+
+    <img src="septimo.png" id="septimo">
+
+    <img src="fan.png" id="fan">
+    
+    <img src="cometas.png" alt="" id="cometas">
+
+    <img src="boton.png" alt="" id="boton">
+    
+</div>
+<script type="text/javascript">
+window.onload = function(){
+    var septimo = document.getElementById('septimo');
+    var fan = document.getElementById('fan');
+    var cometas = document.getElementById('cometas');
+    var boton = document.getElementById('boton');
+
+    setTimeout(function () {
+        loop();
+    }, 3000);
+
+    function loop() {
+        septimo.style.display = 'none';
+        TweenLite.to(fan, .3, {
+            opacity: 1
+        });
+        TweenLite.to(cometas, 1.6, {
+            bottom: '100%',
+            left:  '80%'
+        });
+        setTimeout(function () {
+          fan.style.display = 'none';
+          TweenLite.to(boton, .3, {
+            opacity: 1,
+            onComplete: function () {
+                setTimeout(function () {
+                    reset();
+                }, 3000);
+            }
+          });
+        }, 4000);
+    }
+
+    function reset() {
+        cometas.style.bottom = '-270%';
+        cometas.style.left = '-45%';
+
+        fan.style.opacity = 0;
+        fan.style.display = 'block';
+
+
+        boton.style.opacity = 0;
+        TweenLite.fromTo(septimo, .3, {opacity:0, display: 'block'}, {
+            opacity: 1,
+            onComplete: function () {
+                setTimeout(function () {
+                    loop();
+                }, 1200);
+            }
+        });
+    }
+};
+document.getElementById("clicktag").addEventListener("click",function(){
+    window.open(window.clickTag);
+}, false);
+</script>
+</body>
+</html>

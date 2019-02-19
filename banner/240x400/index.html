@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>300x600</title>
+<script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenlite_1.19.0_422f021fad4c20f20cf3640a06ac39e9_min.js"></script>
+<script src="https://s0.2mdn.net/ads/studio/cached_libs/cssplugin_1.19.0_cfbff7d208ccfdbe176b9855af1eb1fa_min.js"></script>
+<meta name="ad.size" content="width=240,height=400">
+<script type="text/javascript">var clickTag = 'http://www.google.com';</script>
+<style>
+
+*{margin:0;padding:0;outline:none;box-sizing:border-box;}
+
+.banner {
+  background: url('fondo.jpg');
+}
+
+.banner img {
+  position: absolute;
+}
+
+.center{
+  left: 0;
+  margin: 0 auto;
+  right: 0;
+}
+
+#septimo{
+  top: 18%;
+  width: 80%;
+}
+
+#fan{
+  opacity: 0;
+  top: 30%;
+  width: 100%;
+}
+
+#logos {
+  top: 10px;
+  width: 50%;
+}
+
+#cometas{
+  bottom: -170%;
+  left: -130%;
+}
+
+#boton{
+  bottom: 40px;
+}
+
+#participa{
+  opacity: 0;
+  top: 30%;
+  width: 100%;
+}
+
+</style>
+</head>
+<body>
+<div class="banner" style="width:240px;height:400px;position:relative;overflow:hidden;cursor:pointer;" id="clicktag">
+    
+    <img src="logos.png" alt="" id="logos" class="center">
+
+    <img src="boton.jpg" alt="" id="boton" class="center"> 
+
+    <img src="septimo.png" id="septimo" class="center">
+
+    <img src="fan.png" id="fan" class="center">
+    
+    <img src="cometas.png" alt="" id="cometas">
+
+    <img src="participa.png" alt="" id="participa" class="center">
+    
+</div>
+<script type="text/javascript">
+window.onload = function(){
+    var septimo = document.getElementById('septimo');
+    var fan = document.getElementById('fan');
+    var cometas = document.getElementById('cometas');
+    var participa = document.getElementById('participa');
+
+    setTimeout(function () {
+        loop();
+    }, 3000);
+
+    function loop() {
+        septimo.style.display = 'none';
+        TweenLite.to(fan, .3, {
+            opacity: 1
+        });
+        TweenLite.to(cometas, 2, {
+            bottom: '100%',
+            left:  '80%'
+        });
+        setTimeout(function () {
+          fan.style.display = 'none';
+          TweenLite.to(participa, .3, {
+            opacity: 1,
+            onComplete: function () {
+                setTimeout(function () {
+                    reset();
+                }, 3000);
+            }
+          });
+        }, 4000);
+    }
+
+    function reset() {
+        cometas.style.bottom = '-170%';
+        cometas.style.left = '-130%';
+
+        fan.style.opacity = 0;
+        fan.style.display = 'block';
+
+        participa.style.opacity = 0;
+
+        TweenLite.fromTo(septimo, .3, {opacity:0, display: 'block'}, {
+            opacity: 1,
+            onComplete: function () {
+                setTimeout(function () {
+                    loop();
+                }, 3000);
+            }
+        });
+    }
+};
+document.getElementById("clicktag").addEventListener("click",function(){
+    window.open(window.clickTag);
+}, false);
+</script>
+</body>
+</html>
