@@ -16,10 +16,6 @@ ul, li{
   padding: 0;
 }
 
-img{
-  max-width: 100%;
-}
-
 body{
   background: #d5e2e2;
   color: #495c5c;
@@ -98,7 +94,6 @@ body{
   position: absolute;
   top: 0;
   height: 100%;
-  max-width: none;
   width: auto;
 }
 
