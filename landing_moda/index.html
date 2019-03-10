@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	  <meta charset="utf-8">
+	  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	  <title></title>
+	  <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+	  <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="loader">
+      <div class="cargando"></div>
+    </div>
+  	<div class="wrap">
+     <div class="container">
+      <div class="row">
+        <div class="col-md-5">
+          <div class="col-izq">
+            <div class="wrap-izq">
+            <div class="cont_logo text-center animated fadeInUp">
+              <img src="images/logo.png" alt="">
+              <h2>Lorem</h2>
+            </div>
+            <div class="contenido text-center">
+              <p class="animated fadeInUp">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+              <ul class="links">
+                <li class="animated fadeInUp"><a href="#">Lorem Ipsum</a></li>
+                <li class="animated fadeInUp"><a href="#">Lorem Ipsum</a></li>
+                <li class="animated fadeInUp"><a href="#">Lorem Ipsum</a></li>
+              </ul>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+     <div class="cont_slider">
+       <div class="slider">
+         <div class="i"></div>
+         <img src="images/slider1.jpg" alt="">
+         <img src="images/slider2.jpg" alt="">
+       </div>
+     </div>
+    </div>
+  	<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  	<script type="text/javascript" src="js/TweenMax.min.js"></script>
+  	<script>
+  	  $(function (){
+
+      var loader = $('.cargando');
+      var contLoader = $('.loader');
+      var wrap = $('.wrap');
+      
+      TweenMax.to(loader, 1, {css: {'backgroundPosition': 'right'}, repeat: -1, yoyo: true, ease: SteppedEase.config(9)});
+
+      TweenMax.delayedCall(4, function(){
+        TweenMax.to(contLoader, 1, {css: {'opacity': 0}, onComplete: function(){
+          TweenMax.to(contLoader, 0, {css: {'display': 'none'}, ease:Linear.easeNone});
+          TweenMax.to(wrap, 1, {css: {'opacity': 1}});
+          loader.remove();
+        }});
+      });
+      
+      var posicion = 0;
+
+      var slide = function(){
+        $('.slider img').eq(posicion).fadeIn(1000, function(){
+          TweenMax.delayedCall(3, function(){
+            $('.slider img').eq(posicion).fadeOut(1000, function(){
+              posicion++;
+              if($('.slider img').eq(posicion).length <= 0){
+                posicion = 0;
+              }
+              slide();
+            });
+          });
+        });
+      };
+
+      TweenMax.delayedCall(8, function(){
+        slide();
+      });
+
+	  });
+  	</script>
+  </body>
+</html>
